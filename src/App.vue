@@ -1,16 +1,41 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import { invoke } from "@tauri-apps/api/core";
+import { onMounted, ref } from "vue";
 
 const showStatsWindow = ref(true);
 const showDetailsWindow = ref(true);
+
+const products = ref();
+
+onMounted(() => {
+  const t = {
+    code: "Code ",
+    name: "Name",
+    category: "Category",
+    quantity: "Q",
+  };
+  products.value = [];
+  for (let i = 0; i < 100; i++) {
+    products.value.push(t);
+  }
+});
 </script>
 
 <template>
   <div class="h-full">
     <div class="log_window flex flex-row p-2">
       <div class="flex-auto flex-grow">
-        <Panel class="h-full w-full"> Logs </Panel>
+        <Panel class="m-0 h-full w-full overflow-auto">
+          <DataTable
+            :value="products"
+            size="small"
+            tableStyle="min-width: 50rem"
+          >
+            <Column field="code" header="Code"></Column>
+            <Column field="name" header="Name"></Column>
+            <Column field="category" header="Category"></Column>
+            <Column field="quantity" header="Quantity"></Column>
+          </DataTable>
+        </Panel>
       </div>
       <aside
         :class="[
