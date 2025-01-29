@@ -22,13 +22,14 @@ onMounted(() => {
 
 <template>
   <div class="h-full">
+    <p>${0}</p>
     <div class="log_window flex flex-row p-2">
       <div class="flex-auto flex-grow">
         <Panel class="m-0 h-full w-full overflow-auto">
           <DataTable
             :value="products"
             size="small"
-            tableStyle="min-width: 50rem"
+            table-style="min-width: 50rem"
           >
             <Column field="code" header="Code"></Column>
             <Column field="name" header="Name"></Column>
@@ -43,7 +44,7 @@ onMounted(() => {
           showStatsWindow ? 'stats_window_shown' : 'stats_window_hidden',
         ]"
       >
-        <div class="h-full m-2" v-if="showStatsWindow">
+        <div v-if="showStatsWindow" class="h-full m-2">
           Stats
 
           <Button @click="showStatsWindow = false">Toggle</Button>

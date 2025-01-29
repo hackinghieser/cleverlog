@@ -10,10 +10,10 @@ app.use(PrimeVue, {
     preset: Aura,
   },
 });
-app.component("Button", Button);
-app.component("Card", Card);
-app.component("Panel", Panel);
-app.component("DataTable", DataTable);
-app.component("Column", Column);
-app.component("SelectButton", SelectButton);
+app.component("PrimeButton", Button);
+app.component("PrimeCard", Card);
+app.component("PrimePanel", Panel);
+app.component("PrimeDataTable", DataTable);
+app.component("PrimeColumn", Column);
+app.component("PrimeSelectButton", SelectButton);
 app.mount("#app");

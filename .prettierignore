@@ -1,0 +1,10 @@
+# Ignore artifacts:
+build
+src-tauri
+coverage
+
+# Ignore all HTML files:
+**/*.js
+**/*.rs
+**/*.html
+**/*.json
